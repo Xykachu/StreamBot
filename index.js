@@ -17,12 +17,33 @@ client.once('ready',()=> {
     console.log(`${client.user.tag} has logged in`);
 });
  
+const allCommands =Array.from(client.commands.keys());
+
 
 client.on('messageCreate',message =>{
     if(!message.content.startsWith(prefix)|| message.author.bot) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
+
+    var output = " ";
+    let embed = new MessageEmbed()
+    .setColor("#eca6ff")
+    .setTitle("Available Commands: ")
+    .setDescription(`use ! before each command`)
+    .addField(`meow`,"meow");
+
+    if(commandName === "commands"){
+        allCommands.forEach(element=>{
+    output +=  " " + element + " ";
+    embed = new MessageEmbed()
+    .setColor("#eca6ff")
+    .setTitle("Available Commands: ")
+    .setDescription(`use ! before each command`)
+    .addField(output,"**");
+        });
+        message.reply({embeds:[embed]})
+    }
 
 if (!client.commands.has(commandName)) {
 		
