@@ -1,7 +1,10 @@
 //const Discord = require('discord.js');
 const fs = require('fs');
 const {Client, Intents, Collection, MessageEmbed} = require('discord.js');
-const {prefix, token} = require('./config.json');
+const {prefix, token,apiToken} = require('./config.json');
+const axios = require("axios");
+
+
 
 const client = new Client({intents: [Intents.FLAGS.GUILDS,Intents.FLAGS.GUILD_MESSAGES,Intents.FLAGS.GUILD_MESSAGE_REACTIONS,Intents.FLAGS.GUILD_MEMBERS]});
 
