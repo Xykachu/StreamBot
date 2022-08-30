@@ -7,7 +7,7 @@ module.exports={
         let count = Math.floor(Math.random() * 69);
         let meow = count ? string.repeat(count) :string;
         if(count == 69){
-            message.channel.send("woof");
+            message.channel.send("woof!");
         }
         else{
             message.channel.send(meow);
